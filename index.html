@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate the future value of your investments with our advanced Compound Interest Calculator. See how your money grows over time with daily, monthly, or annual compounding.">
+    <meta name="keywords" content="compound interest calculator, investment calculator, growth calculator, savings calculator, finance tool">
+    <meta name="author" content="Antigravity">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourwebsite.com/">
+    <meta property="og:title" content="Advanced Compound Interest Calculator | Visual Growth Chart">
+    <meta property="og:description" content="Maximize your savings strategy. Calculate compound interest with real-time graphs and detailed breakdowns. Start planning your financial future today.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.yourwebsite.com/">
+    <meta property="twitter:title" content="Advanced Compound Interest Calculator | Visual Growth Chart">
+    <meta property="twitter:description" content="Maximize your savings strategy. Calculate compound interest with real-time graphs and detailed breakdowns. Start planning your financial future today.">
+    <meta property="twitter:image" content="https://www.yourwebsite.com/og-image.jpg">
+
+    <title>Compound Interest Calculator | Visualize Your Wealth Growth</title>
+    
+    <!-- Google Fonts: Outfit for a modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- JSON-LD Schema for SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Compound Interest Calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "A free online compound interest calculator that allows users to calculate the future value of their investments with customizable interest rates, time periods, and compounding frequencies."
+    }
+    </script>
+    <!-- JSON-LD Schema for FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is compound interest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compound interest is the interest on a loan or deposit calculated based on both the initial principal and the accumulated interest from previous periods. Essentially, it's 'interest on interest,' which allows your money to grow faster over time."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How is compound interest different from simple interest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simple interest is calculated only on the principal portion of a loan or deposit. Compound interest is calculated on the principal amount and also on the accumulated interest of previous periods, resulting in exponential growth."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Why is the frequency of compounding important?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The frequency of compounding (daily, monthly, annually) determines how often the interest is added to the principal. More frequent compounding results in more interest earned over time because the interest starts earning its own interest sooner."
+        }
+      }]
+    }
+    </script>
+</head>
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <h1>Compound Interest Calculator</h1>
+            <p>Watch your money multiply over time.</p>
+        </header>
+
+        <section class="calculator-app glass-panel">
+            <div class="controls">
+                <!-- Principal Amount -->
+                <div class="input-group">
+                    <div class="label-row">
+                        <label for="principal">Initial Investment</label>
+                        <span class="value-display" id="principal-display">$10,000</span>
+                    </div>
+                    <div class="input-wrapper">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="principal" value="10000" min="0" step="100">
+                    </div>
+                    <input type="range" id="principal-range" min="0" max="1000000" step="1000" value="10000" class="slider">
+                </div>
+
+                <!-- Interest Rate -->
+                <div class="input-group">
+                    <div class="label-row">
+                        <label for="rate">Interest Rate</label>
+                        <span class="value-display" id="rate-display">5%</span>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="number" id="rate" value="5" min="0" max="20" step="0.1">
+                        <span class="percent-symbol">%</span>
+                    </div>
+                    <input type="range" id="rate-range" min="0" max="15" step="0.1" value="5" class="slider">
+                </div>
+
+                <!-- Years -->
+                <div class="input-group">
+                    <div class="label-row">
+                        <label for="years">Investment Period</label>
+                        <span class="value-display" id="years-display">10 Years</span>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="number" id="years" value="10" min="1" max="50">
+                        <span class="unit">Years</span>
+                    </div>
+                    <input type="range" id="years-range" min="1" max="50" step="1" value="10" class="slider">
+                </div>
+
+                <!-- Frequency -->
+                <div class="input-group">
+                    <label for="frequency">Compound Frequency</label>
+                    <div class="select-wrapper">
+                        <select id="frequency">
+                            <option value="365">Daily</option>
+                            <option value="52">Weekly</option>
+                            <option value="12">Monthly</option>
+                            <option value="1" selected>Annually</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results">
+                <div class="summary-cards">
+                    <div class="card glass-sub-panel">
+                        <h3>Future Value</h3>
+                        <div class="big-number" id="total-value">$16,288.95</div>
+                    </div>
+                    <div class="card glass-sub-panel">
+                        <h3>Total Interest</h3>
+                        <div class="number-highlight" id="total-interest">$6,288.95</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section glass-panel">
+            <h2>Understanding Compound Interest</h2>
+            <p>Albert Einstein reportedly called compound interest the "eighth wonder of the world." Unlike simple interest, which is calculated only on the principal amount, compound interest is calculated on the principal <strong>plus</strong> the accumulated interest.</p>
+            
+            <div class="content-grid">
+                <div class="info-card">
+                    <h3>📈 Exponential Growth</h3>
+                    <p>Your money grows faster over time because your interest earns interest. The longer you leave your money invested, the more powerful this effect becomes.</p>
+                </div>
+                <div class="info-card">
+                    <h3>⏳ Time is Key</h3>
+                    <p>Starting early is often more important than starting big. A small amount invested for a long time can outgrow a large amount invested for a shorter time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section glass-panel">
+            <h2>Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-button" aria-expanded="false">
+                        What is the formula for compound interest?
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p>The formula is: <strong>A = P(1 + r/n)^(nt)</strong></p>
+                        <ul>
+                            <li><strong>A</strong> = Future Value</li>
+                            <li><strong>P</strong> = Principal Investment</li>
+                            <li><strong>r</strong> = Annual Interest Rate (decimal)</li>
+                            <li><strong>n</strong> = Number of times interest applied per time period</li>
+                            <li><strong>t</strong> = Number of time periods elapsed</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button" aria-expanded="false">
+                        Does this calculator factor in inflation?
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p>No, this calculator shows the nominal future value of your investment. To adjust for inflation, you would need to subtract the expected inflation rate from your interest rate to get a "real" return rate.</p>
+                    </div>
+                </div>
+                <!-- More FAQ items can be added here -->
+            </div>
+        </section>
+        
+        <footer class="footer">
+            <p>&copy; 2024 Compound Interest Calculator. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
